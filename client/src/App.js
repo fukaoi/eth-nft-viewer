@@ -27,8 +27,9 @@ class App extends Component {
 
       let dict = [];
       let n = 1;
+console.log(web3.contract);
       for (let i in ids) {
-        const response = await this.state.contract.methods.tokenURI(ids[i]).call();
+        const response = await web3.contract.methods.tokenURI(ids[i]).call();
         axios.get(response).then(
           res => {
             dict.push(
@@ -58,9 +59,6 @@ class App extends Component {
   };
 
   render() {
-    if (!this.state.web3) {
-      return <div>Loading Web3, accounts, and contract...</div>;
-    }
     return <div className="App">{this.state.imageList}</div>;
   }
 }
