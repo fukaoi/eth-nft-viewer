@@ -12,7 +12,8 @@ class App extends Component {
     try {
       // Get network provider and web3 instance.
       // const web3 = await getWeb3();
-      const web3 = new Web3('https://ropsten.infura.io/v3/1835809e0e6a4de38eaf1f7afb51e0ec');
+      // const web3 = new Web3('https://ropsten.infura.io/v3/1835809e0e6a4de38eaf1f7afb51e0ec');
+      const web3 = new Web3('https://mainnet.infura.io/v3/1835809e0e6a4de38eaf1f7afb51e0ec');
 
       // Use web3 to get the user's accounts.
       // const accounts = await web3.eth.getAccounts();
@@ -31,6 +32,7 @@ class App extends Component {
       let n = 1;
 
       const c = new web3.eth.Contract(abi, address);
+      console.log(await c.methods.tokenURI(10010670).call());
       for (let i in ids) {
         const response = await c.methods.tokenURI(ids[i]).call();
         alert(response);
