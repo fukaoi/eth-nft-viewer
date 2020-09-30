@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import Web3 from "web3";
-import abi from "./abi/erc721.json";
+import abi from "../abi/erc721.json";
 
 import "./App.css";
 
