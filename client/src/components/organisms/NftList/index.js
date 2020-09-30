@@ -8,22 +8,20 @@ const useStyles = makeStyles({
   },
 });
 
-
+const inlineBlock = (metaData, style) => {
+  return (
+    <div
+      className={style}
+      key={metaData.image}
+    >
+      <AssetImage imageUrl={metaData.image} />
+    </div>
+  )
+}
 
 const NftList = ({metaDatas}) => {
-  const InlineBlock = (metaData) => {
-    const {item} = useStyles();
-    return (
-      <div
-        className={item}
-        key={metaData}
-      >
-        <AssetImage imageUrl={metaData.image} />
-      </div>
-    )
-  }
-  console.log(metaDatas.metaDatas, metaDatas.metaDatas.length);
-  return (<>{metaDatas.metaDatas.map(InlineBlock)}</>);
+  const {item} = useStyles();
+  return (<>{metaDatas.metaDatas.map(data => inlineBlock(data, item))}</>);
 }
 
 export default NftList;
