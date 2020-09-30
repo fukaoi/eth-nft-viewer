@@ -9,20 +9,28 @@ export const Pages = () => {
   const address = "0xb932a70A57673d89f4acfFBE830E8ed7f75Fb9e0";
   const ids = [
     '7391',
+    '14118',
+    '14024',
+    '14117',
+    '14025',
+    '14116',
   ];
 
-  const [images, setImages] = useState([]);
+  const [metaDatas, setMetaDatas] = useState([]);
   const contract = new web3.eth.Contract(abi, address);
 
   useEffect(() => {
     ids.map(async (id) => {
       const url = await contract.methods.tokenURI(id).call();
-      ajax.getJSON(url).subscribe(setImages);
+      ajax.getJSON(url).subscribe(
+        res => {
+          metaDatas.push(res);
+          setMetaDatas(metaDatas);
+        });
     })
   }, [])
 
-  console.log(images);
-  return <Templates images={images} />;
+  return <Templates metaDatas={metaDatas} />;
 }
 
 export default Pages;

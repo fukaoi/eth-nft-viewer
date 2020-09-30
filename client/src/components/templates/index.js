@@ -9,11 +9,11 @@ const useStyles = makeStyles({
   }
 });
 
-const Templates = (images) => {
+const Templates = (metaDatas) => {
   const {root} = useStyles();
   return (
     <div className={root}>
-      <NftList images={images} />
+      <NftList metaDatas={metaDatas} />
     </div>
   )
 }
