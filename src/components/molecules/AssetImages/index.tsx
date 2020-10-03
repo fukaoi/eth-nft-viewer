@@ -5,7 +5,6 @@ const AssetImage = ({imageUrl}) => {
     <img src={imageUrl}
       width="150"
       height="150"
-      border="0"
       alt={imageUrl}
     />
   );

@@ -9,7 +9,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Templates = (metaDatas) => {
+const Templates = ({metaDatas}) => {
   const {root} = useStyles();
   return (
     <div className={root}>

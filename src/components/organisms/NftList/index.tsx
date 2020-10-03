@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
 });
 
-const inlineBlock = (metaData, style) => {
+const inlineBlock = (metaData: {image: string}, style: string) => {
   return (
     <div
       className={style}
