@@ -5,7 +5,7 @@ import {getTokenIds, getMetaData} from "../../shared/web3Client";
 
 export const Pages = () => {
 
-  const [metaDatas, setMetaDatas] = useState(['']);
+  const [metaDatas, setMetaDatas] = useState<any[]>([]);
   const ids = getTokenIds();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const Pages = () => {
       const url = await getMetaData(id);
       ajax.getJSON(url).subscribe(
           res => {
-          arr.push(res as string);
+          arr.push(res as any);
           setMetaDatas([...arr]);
         });
     })

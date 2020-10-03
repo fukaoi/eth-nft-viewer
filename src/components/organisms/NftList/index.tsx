@@ -19,9 +19,12 @@ const inlineBlock = (metaData: {image: string}, style: string) => {
   )
 }
 
-const NftList = ({metaDatas}) => {
-  const {item} = useStyles();
-  return (<>{metaDatas.metaDatas.map(data => inlineBlock(data, item))}</>);
+const NftList = ({metaDatas}:{metaDatas: any}) => {
+  const {
+    item
+  } = useStyles();
+
+  return (<>{metaDatas.map((data: {image: string}) => inlineBlock(data, item))}</>);
 }
 
 export default NftList;

@@ -8,7 +8,7 @@ export const getMetaData = async (id: string) => {
   return await new web3.eth.Contract(abi, address).methods.tokenURI(id).call();
 }
 
-export const getTokenIds = () => 
+export const getTokenIds = () =>
   [
     '7391',
     '14118',
