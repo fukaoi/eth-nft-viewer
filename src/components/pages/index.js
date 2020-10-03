@@ -17,8 +17,8 @@ export const Pages = () => {
           arr.push(res);
           setMetaDatas([...arr]);
         });
-    }, [ids])
-  })
+    })
+  },[])
 
   return <Templates metaDatas={metaDatas} />;
 }
