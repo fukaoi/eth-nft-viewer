@@ -13,16 +13,16 @@ const useStyles = makeStyles({
   }
 });
 
-const AssetImage = ({imageUrl}: {imageUrl: string}) => {
+const AssetImage = ({asset}: {asset: any}) => {
   const {image} = useStyles();
 
   return (
     <Card>
       <CardActionArea>
-        <CardMedia image={imageUrl} className={image} />
+        <CardMedia image={asset.image} className={image} />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizar
+            {asset.name}
           </Typography>
         </CardContent>
       </CardActionArea>

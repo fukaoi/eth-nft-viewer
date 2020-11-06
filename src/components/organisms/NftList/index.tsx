@@ -19,7 +19,7 @@ const InlineBlock = ({metaData}: {metaData: any}) => {
       className={item}
       key={metaData.image}
     >
-      <AssetImage imageUrl={metaData.image} />
+      <AssetImage asset={metaData} />
     </div>
   )
 }
