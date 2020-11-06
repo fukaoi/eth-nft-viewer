@@ -25,6 +25,7 @@ const InlineBlock = ({metaData}: {metaData: any}) => {
 }
 
 const NftList = ({metaDatas}: {metaDatas: any}) => {
+  console.log(metaDatas);
   return (
     <>
       {metaDatas.map((metaData: any) => <InlineBlock metaData={metaData} />)}
