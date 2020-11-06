@@ -6,19 +6,18 @@ import {getTokenIds, getMetaData} from "../../shared/web3Client";
 export const Pages = () => {
 
   const [metaDatas, setMetaDatas] = useState<any[]>([]);
-  const ids = getTokenIds();
 
   useEffect(() => {
-    let arr:string[] = [];
-    ids.map(async (id) => {
+    let arr: string[] = [];
+    getTokenIds().map(async (id) => {
       const url = await getMetaData(id);
       ajax.getJSON(url).subscribe(
-          res => {
-          arr.push(res as any);
+        res => {
+          arr.push(res as string);
           setMetaDatas([...arr]);
         });
     })
-  },[])
+  }, [])
 
   return <Templates metaDatas={metaDatas} />;
 }
