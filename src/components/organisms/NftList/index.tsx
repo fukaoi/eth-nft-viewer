@@ -5,13 +5,18 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles({
   item: {
     display: 'inline-block',
+    margin: 6,
   },
 });
 
-const inlineBlock = (metaData: {image: string}, style: string) => {
+const InlineBlock = ({metaData}: {metaData: any}) => {
+  const {
+    item
+  } = useStyles();
+
   return (
     <div
-      className={style}
+      className={item}
       key={metaData.image}
     >
       <AssetImage imageUrl={metaData.image} />
@@ -19,12 +24,12 @@ const inlineBlock = (metaData: {image: string}, style: string) => {
   )
 }
 
-const NftList = ({metaDatas}:{metaDatas: any}) => {
-  const {
-    item
-  } = useStyles();
-
-  return (<>{metaDatas.map((data: {image: string}) => inlineBlock(data, item))}</>);
+const NftList = ({metaDatas}: {metaDatas: any}) => {
+  return (
+    <>
+      {metaDatas.map((metaData: any) => <InlineBlock metaData={metaData} />)}
+    </>
+  );
 }
 
 export default NftList;
